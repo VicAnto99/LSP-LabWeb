@@ -3,12 +3,15 @@ const peliculasCtrl = { };
 
 peliculasCtrl.getPeliculas = async (req, res) => {
     const peliculas = await Pelicula.find();
-    res.json({
-        mensaje:"Peliculas mostradas",
-        peliculas: peliculas});
+    res.json(peliculas);
 };
 peliculasCtrl.createPeliculas = async (req, res) => {
-    const pelicula = new Pelicula(req.body);
+    const pelicula = new Pelicula({
+        tipo: req.body.tipo,
+        medida: req.body.medida,
+        provedor: req.body.provedor,
+        unidades: req.body.unidades
+    });
     await pelicula.save();
     res.json({
         mensaje:"Pelicula creada",
