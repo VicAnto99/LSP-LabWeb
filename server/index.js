@@ -14,6 +14,7 @@ app.use(cors({origin: 'http://localhost:4200'}));
 
 //Rutas
 app.use('/api/peliculas', require('./routes/peliculas.routes'));
+app.use('/api/users', require('./routes/users.routes'));
 
 //Iniciar el servidor
 app.listen(app.get('port'), () => {
