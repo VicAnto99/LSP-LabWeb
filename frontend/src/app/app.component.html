@@ -1,6 +1,21 @@
 <nav class="nav-wrapper blue">
-  <div class="container">
-    <a href="/" class="brand-logo">Sistema Laminado Sobre Papel (LSP)</a>
-  </div>
-</nav>
-<app-peliculas></app-peliculas>
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <ng-container *ngIf="!authService.loggedIn(); else salir">
+            <li><a routerLink="/registro" class="active">Registrate</a></li>
+            <li><a routerLink="/ingresar" class="active">Ingresar</a></li>
+        </ng-container>
+        <ng-template #salir>
+            <li><a (click)="authService.logOut()" class="active">Salir de la cuenta</a></li>
+        </ng-template>
+    </ul>
+    <a href="/" class="brand-logo center" >Laminado Sobre Papel (LSP)</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <ng-container *ngIf="!authService.loggedIn(); else salir2"></ng-container>
+        <ng-template #salir2>
+            <li><a routerLink="/material" class="active">Material</a></li>
+            <li><a routerLink="/pagos" class="active">Pagos</a></li>
+            <li><a href="#" class="active">Trabajos</a></li>
+        </ng-template>
+    </ul>
+  </nav>
+<router-outlet></router-outlet>

@@ -3,7 +3,7 @@
         <div class="col s5">
             <div class="card">
                 <div class="card-content">
-                    <h5>Formulario para el material</h5>
+                    <span class="card-title">Formulario para el material</span>
                     <form #peliculaForm="ngForm" (ngSubmit)="addPelicula(peliculaForm) ">
                         <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="peliculaService.selectedPelicula._id">
                         <div class="row">

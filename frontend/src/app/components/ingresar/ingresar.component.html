@@ -1,0 +1,31 @@
+
+<div class="container center">
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="card blue">
+                <div class="card-content white-text">
+                  <span class="card-title">Ingresa</span>
+                  <div class="card-body">
+                    <form (submit)="ingresar()">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input [(ngModel)]='user.email' type="email" name="email" placeholder="Ingresa tu correo">
+                            </div>
+                            <div class="input-field col s12">
+                                <input [(ngModel)]='user.password' type="password" name="password" placeholder="Ingresa tu contraseña">
+                            </div>
+                            <div class="card-action">
+                                <div class="input-field col s12">
+                                    <button type="submit" class="waves-effect waves-light btn-large">
+                                        Ingresar<i class="material-icons right">send</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
