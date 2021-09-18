@@ -3,3 +3,25 @@
     color: rgb(16, 70, 151);
     opacity: 1;
 }
+#login{
+    margin-top: 5% !important;
+}
+.login-icon{
+    color:white !important;
+}
+.material-icons{
+    color: #90caf9;
+    cursor: pointer;
+}
+.h-input:hover {
+    background-color: #90caf9;
+    border-radius: 0.5%;
+    color: white !important;
+  }
+  .title{
+      background-color:#90caf9;
+      color: white;
+  }
+  .title h4{
+    padding: 1.4%;
+  }
