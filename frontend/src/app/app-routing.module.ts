@@ -18,7 +18,7 @@ const routes: Routes = [
     component: IngresarComponent
   },
   {
-    path: 'privado',
+    path: 'trabajo',
     component: PagosPrivadosComponent,
     canActivate: [AuthGuard]
   },

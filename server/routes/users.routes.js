@@ -52,12 +52,7 @@ router.get('/pagos', (req, res) => {
             descripcion: 'Pago por el trabajo Valorant',
             pago: '$900',
             fecha: '2021-09-17T03:29:06.224+00:00'
-        }
-    ]);
-});
-
-router.get('/pagos-privados', verifyToken,(req, res) => {
-    res.json([
+        },
         {
             _id: 5,
             cliente: 'Victor',
@@ -87,6 +82,10 @@ router.get('/pagos-privados', verifyToken,(req, res) => {
             fecha: '2021-09-17T03:29:06.224+00:00'
         }
     ]);
+});
+
+router.get('/pagos-privados', verifyToken,(req, res) => {
+    res.json([]);
 });
 
 router.get('/perfil', verifyToken, (req, res)=>{

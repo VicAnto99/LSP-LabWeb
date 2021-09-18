@@ -1,1 +1,62 @@
-<p>pagos-privados works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col s5">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Formulario para los trabajos</span>
+                    <form>
+                        <!--<input type="hidden" name="_id" #_id="ngModel">-->
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="text" name="tipo" placeholder="Ingresa el tipo de material">
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="medida" placeholder="Ingresa la medida de material">
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="provedor" placeholder="Ingresa el proveedor del material">
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="unidades" placeholder="Ingresa las unidades del material">
+                            </div>
+                            <div class="card-action">
+                                <div class="input-field col s12">
+                                    <button class="btn">Limpiar</button>
+                                    <button class="btn right">Enviar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col s7">
+            <table>
+                <thead>
+                    <th>Tipo</th>
+                    <th>Medida</th>
+                    <th>Proveedor</th>
+                    <th>Unidades</th>
+                </thead>
+                <tbody>
+                    <!--
+                    <tr *ngFor="let pelicula of peliculaService.peliculas">
+                        <td>{{pelicula.tipo}}</td>
+                        <td>{{pelicula.medida}}</td>
+                        <td>{{pelicula.provedor}}</td>
+                        <td>{{pelicula.unidades}}</td>
+                        <td>
+                            <a (click)="editPelicula(pelicula)">
+                                <i class="material-icons">edit</i>
+                            </a>
+                            <a (click)="deletePelicula(pelicula._id)">
+                                <i class="material-icons">delete</i>
+                            </a>
+                        </td>
+                    </tr>
+                    -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
