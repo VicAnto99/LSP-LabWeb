@@ -16,12 +16,12 @@ img{
     max-height: 400px;
 }
 .c3{
-    animation: 1s ease-out 0s 1 slideInFromBottom;
+    animation: 1s ease-out 0s 1 slideInFromRight;
     max-width: 300px; 
     max-height: 400px;
 }
 .c4{
-    animation: 1s ease-out 0s 1 slideInFromBottom;
+    animation: 1s ease-out 0s 1 slideInFromLeft;
     max-width: 500px; 
     max-height: 400px;
 }
