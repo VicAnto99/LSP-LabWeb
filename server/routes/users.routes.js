@@ -7,8 +7,15 @@ const user = require('../models/user');
 router.get('/', (req, res) => res.send('Hola mundo'));
 
 router.post('/registrar', async (req, res) =>{
-    const {email, password} = req.body;
-    const newUser = new user({email, password});
+    const {email, password, name, last_name, mom_last_name, edad, numero_telefonico} = req.body;
+    if(email === "") return res.status(401).send("Datos vacios");
+    if(password === "") return res.status(401).send("Datos vacios");
+    if(name === "") return res.status(401).send("Datos vacios");
+    if(last_name === "") return res.status(401).send("Datos vacios");
+    if(mom_last_name === "") return res.status(401).send("Datos vacios");
+    if(edad === "") return res.status(401).send("Datos vacios");
+    if(numero_telefonico === "") return res.status(401).send("Datos vacios");
+    const newUser = new user({email, password, name, last_name, mom_last_name, edad, numero_telefonico});
     await newUser.save();
     const token = jwt.sign({_id: newUser._id}, 'secretallave');
     return res.status(200).send({token});
@@ -83,10 +90,10 @@ router.get('/pagos', (req, res) => {
         }
     ]);
 });
-
+/*
 router.get('/pagos-privados', verifyToken,(req, res) => {
     res.json([]);
-});
+});*/
 
 router.get('/perfil', verifyToken, (req, res)=>{
     res.send(req.userId);

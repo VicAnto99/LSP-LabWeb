@@ -1,21 +1,24 @@
-<nav class="nav-wrapper #90caf9 blue lighten-3">
-    <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <ng-container *ngIf="!authService.loggedIn(); else salir">
-            <li><a routerLink="/registro" class="active hoverable">Registrate</a></li>
-            <li><a routerLink="/ingresar" class="active hoverable">Ingresar</a></li>
-        </ng-container>
-        <ng-template #salir>
-            <li><a (click)="authService.logOut()" class="active hoverable">Salir de la cuenta</a></li>
-        </ng-template>
-    </ul>
-    <a routerLink="/info" class="brand-logo center hoverable" >Laminado Sobre Papel (LSP)</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <ng-container *ngIf="!authService.loggedIn(); else salir2"></ng-container>
-        <ng-template #salir2>
-            <li><a routerLink="/material" class="active hoverable">Material</a></li>
-            <li><a routerLink="/pagos" class="active hoverable">Pagos</a></li>
-            <li><a routerLink="/trabajo" class="active hoverable">Trabajos</a></li>
-        </ng-template>
-    </ul>
-  </nav>
+<div class="navbar-fixed">
+    <nav class="nav-wrapper #90caf9 blue lighten-3">
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <ng-container *ngIf="!authService.loggedIn(); else salir">
+                <li><a routerLink="/registro" class="active hoverable">Registrate</a></li>
+                <li><a routerLink="/ingresar" class="active hoverable">Ingresar</a></li>
+            </ng-container>
+            <ng-template #salir>
+                <li><a (click)="authService.logOut()" class="active hoverable">Salir de la cuenta</a></li>
+                <li><a routerLink="/" class="active hoverable">Perfil</a></li>
+            </ng-template>
+        </ul>
+        <a routerLink="/info" class="brand-logo center hoverable" >Laminado Sobre Papel (LSP)</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <ng-container *ngIf="!authService.loggedIn(); else salir2"></ng-container>
+            <ng-template #salir2>
+                <li><a routerLink="/material" class="active hoverable">Material</a></li>
+                <li><a routerLink="/pagos" class="active hoverable">Pagos</a></li>
+                <li><a routerLink="/trabajo" class="active hoverable">Trabajos</a></li>
+            </ng-template>
+        </ul>
+    </nav>
+</div>
 <router-outlet></router-outlet>
