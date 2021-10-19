@@ -1,10 +1,15 @@
 const { Router } = require('express');
 const jwt = require('jsonwebtoken');
 const router = Router();
-
+//Registrar y entrar
 const user = require('../models/user');
+//Editar y obtener datos
+const userCtrl = require('../controllers/users.controllers');
 
-router.get('/', (req, res) => res.send('Hola mundo'));
+router.get('/', userCtrl.getUsers);
+router.get('/:id', userCtrl.getUser);
+router.put('/:id', userCtrl.editUser);
+router.delete('/:id', userCtrl.deleteUser);
 
 router.post('/registrar', async (req, res) =>{
     const {email, password, name, last_name, mom_last_name, edad, numero_telefonico} = req.body;
