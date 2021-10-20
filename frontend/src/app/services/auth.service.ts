@@ -28,7 +28,7 @@ export class AuthService {
   }
 
   logOut(){
-    localStorage.removeItem('token');
+    localStorage.clear();
     return this.router.navigate(['/ingresar']);
   }
 

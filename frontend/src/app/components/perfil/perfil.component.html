@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="row" id="info" style="display:block">
+        <div class="col s7 push-s3 center">
+            <img class="img" src="../../../assets/img/logo.png">
+            <h4 id="nombre"></h4>
+            <a class="waves-effect waves-light btn-large" (click)="editar()"><i class="material-icons right">edit</i>Editar información</a>
+        </div>
+        <div class="col s5 pull-s9">
+            <div class="row">
+                <h4>Edad: </h4>
+                <blockquote>
+                    <h5 id="edad"></h5>
+                </blockquote>
+            </div>
+            <div class="row">
+                <h4>Número telefónico: </h4>
+                <blockquote>
+                    <h5 id="num"></h5>
+                </blockquote>
+            </div>
+            <div class="row">
+                <h4>Correo: </h4>
+                <blockquote>
+                    <h5 id="correo"></h5>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="editar" style="display:none">
+        <div class="card-body">
+            <form #userForm="ngForm" (submit)="con_editar(userForm)">
+                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="this.perfilService.selectedUser._id">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">contact_mail</i>
+                        <input #email="ngModel" [(ngModel)]='this.perfilService.selectedUser.email' type="email" name="email" id="email" class="validate">
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <input #password="ngModel" [(ngModel)]='this.perfilService.selectedUser.password' type="password" name="password" id="password" class="validate">    
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input #name="ngModel" [(ngModel)]='this.perfilService.selectedUser.name' type="text" name="name" id="name" class="validate">
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">people_outline</i>
+                        <input #last_name="ngModel" [(ngModel)]='this.perfilService.selectedUser.last_name' type="text" name="last_name" id="last_name" class="validate">
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">people_outline</i>
+                        <input #mom_last_name="ngModel" [(ngModel)]='this.perfilService.selectedUser.mom_last_name' type="text" name="mom_last_name" id="mom_last_name" class="validate">
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">insert_invitation</i>
+                        <input #edad="ngModel" [(ngModel)]='this.perfilService.selectedUser.edad' type="number" name="edad" id="edad" class="validate">
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">contact_phone</i>
+                        <input #numero_telefonico="ngModel" [(ngModel)]='this.perfilService.selectedUser.numero_telefonico' type="number" name="numero_telefonico" id="numero_telefonico" class="validate">
+                    </div>
+                    <div class="card-action">
+                        <div class="input-field col s6">
+                            <button type="submit" class="waves-effect #90caf9 blue lighten-3 btn-large">
+                                Cambiar<i class="material-icons right login-icon">send</i>
+                            </button>
+                        </div>
+                        <div class="col s6">
+                            <a class="waves-effect #90caf9 blue lighten-3 btn-large" (click)="cancelar()"><i class="material-icons right login-icon">cancel</i>Cancelar</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+          </div>
+    </div>
+</div>
+
+

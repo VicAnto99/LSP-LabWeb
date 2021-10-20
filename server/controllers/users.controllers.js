@@ -7,10 +7,7 @@ usersCtrl.getUsers = async (req, res) => {
 }
 usersCtrl.getUser = async (req, res) => {
     const user = await User.findById(req.params.id);
-    res.json({
-        mensaje: "User encontrado",
-        user: user
-    });
+    res.json({user: user});
 }
 usersCtrl.editUser = async (req, res) => {
     const {id} = req.params;

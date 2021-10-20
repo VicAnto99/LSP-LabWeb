@@ -10,7 +10,8 @@ import { IngresarComponent } from './components/ingresar/ingresar.component';
 import { PagosComponent } from './components/pagos/pagos.component';
 import { PagosPrivadosComponent } from './components/pagos-privados/pagos-privados.component';
 import { AuthGuard } from './auth.guard';
-import { TokenInterceptorService } from './services/token-interceptor.service'
+import { TokenInterceptorService } from './services/token-interceptor.service';
+import { PerfilComponent } from './components/perfil/perfil.component'
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TokenInterceptorService } from './services/token-interceptor.service'
     RegistroComponent,
     IngresarComponent,
     PagosComponent,
-    PagosPrivadosComponent
+    PagosPrivadosComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

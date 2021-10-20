@@ -51,7 +51,6 @@ export class PeliculasComponent implements OnInit {
   }
   editPelicula(pelicula: Pelicula){
     this.peliculaService.selectedPelicula = pelicula;
-
   }
   deletePelicula(_id: string){
     if(confirm('¿Estás seguro que quieres eliminarla?')){

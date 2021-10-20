@@ -30,6 +30,14 @@ export class IngresarComponent implements OnInit {
       });
       console.log(res);
       localStorage.setItem('token', res.token);
+      localStorage.setItem('id', res.id);
+      localStorage.setItem('name', res.name);
+      localStorage.setItem('last_name', res.last_name);
+      localStorage.setItem('mom_last_name', res.mom_last_name);
+      localStorage.setItem('edad', res.edad);
+      localStorage.setItem('numero_telefonico', res.numero_telefonico);
+      localStorage.setItem('password', res.password);
+      localStorage.setItem('email', res.email);
       this.router.navigate(['/material']);
     }, err => {
       alert("Correo o Contraseña incorrecta, intenta de nuevo.");

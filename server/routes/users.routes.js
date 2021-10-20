@@ -23,7 +23,16 @@ router.post('/registrar', async (req, res) =>{
     const newUser = new user({email, password, name, last_name, mom_last_name, edad, numero_telefonico});
     await newUser.save();
     const token = jwt.sign({_id: newUser._id}, 'secretallave');
-    return res.status(200).send({token});
+    return res.status(200).send({token,
+        id: newUser._id,
+        email: newUser.email,
+        password: newUser.password,
+        name: newUser.name,
+        last_name: newUser.last_name,
+        mom_last_name: newUser.mom_last_name,
+        edad: newUser.edad,
+        numero_telefonico: newUser.numero_telefonico
+    });
 });
 
 router.post('/ingresar', async (req, res) =>{
@@ -32,7 +41,18 @@ router.post('/ingresar', async (req, res) =>{
     if(!usuario) return res.status(401).send("El correo no existe");
     if(usuario.password !== password) return res.status(401).send("Contraseña incorrecta");
     const token = jwt.sign({_id: usuario._id}, 'secretallave');
-    return res.status(200).json({token});
+    return res.status(200).json({
+        mensaje: "Token creado",
+        token,
+        id: usuario._id,
+        email: usuario.email,
+        password: usuario.password,
+        name: usuario.name,
+        last_name: usuario.last_name,
+        mom_last_name: usuario.mom_last_name,
+        edad: usuario.edad,
+        numero_telefonico: usuario.numero_telefonico
+    });
 });
 
 router.get('/pagos', (req, res) => {
@@ -95,18 +115,11 @@ router.get('/pagos', (req, res) => {
         }
     ]);
 });
-/*
-router.get('/pagos-privados', verifyToken,(req, res) => {
-    res.json([]);
-});*/
-
-router.get('/perfil', verifyToken, (req, res)=>{
-    res.send(req.userId);
-})
 
 module.exports = router;
 
 function verifyToken(req, res, next){
+    console.log(req.headers.authorization);
     if (!req.headers.authorization){
         return res.status(401).send('Unthorize Request');
     }
@@ -116,7 +129,7 @@ function verifyToken(req, res, next){
     }
     const payload = jwt.verify(token, 'secretallave');
     req.userId = payload._id;
+    
     next();
-    console.log(payload);
     //if(!req.headers.authorization)
 }
