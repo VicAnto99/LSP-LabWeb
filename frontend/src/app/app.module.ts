@@ -11,7 +11,8 @@ import { PagosComponent } from './components/pagos/pagos.component';
 import { PagosPrivadosComponent } from './components/pagos-privados/pagos-privados.component';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
-import { PerfilComponent } from './components/perfil/perfil.component'
+import { PerfilComponent } from './components/perfil/perfil.component';
+import { ProveedorComponent } from './components/proveedor/proveedor.component'
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PerfilComponent } from './components/perfil/perfil.component'
     IngresarComponent,
     PagosComponent,
     PagosPrivadosComponent,
-    PerfilComponent
+    PerfilComponent,
+    ProveedorComponent
   ],
   imports: [
     BrowserModule,

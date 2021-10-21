@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="col s12 center title">
+        <h4 class="z-depth-2">Proveedores</h4>
+    </div>
+    <div class="row">
+        <div class="col s5">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title center">Formulario para los proveedores</span>
+                    <form #proveedorForm="ngForm" (ngSubmit)="addProveedores(proveedorForm) ">
+                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="proovedorService.selectedProveedor._id">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="proovedorService.selectedProveedor.nombre" placeholder="Ingresa el tipo Nombre">
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="numero_telefonico" #numero_telefonico="ngModel" [(ngModel)]="proovedorService.selectedProveedor.numero_telefonico" placeholder="Ingresa numero_telefonico">
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="correo" #correo="ngModel" [(ngModel)]="proovedorService.selectedProveedor.correo" placeholder="Ingresa el correo">
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="rfc" #rfc="ngModel" [(ngModel)]="proovedorService.selectedProveedor.rfc" placeholder="Ingresa rfc">
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="dirreccion" #dirreccion="ngModel" [(ngModel)]="proovedorService.selectedProveedor.dirreccion" placeholder="Ingresa dirrecion">
+                            </div>
+                            <div class="card-action">
+                                <div class="input-field col s12">
+                                    <button class="btn #90caf9 blue lighten-3" (click)="resetForm(proveedorForm)">Limpiar</button>
+                                    <button class="btn right #90caf9 blue lighten-3">Enviar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col s7">
+            <table>
+                <thead>
+                    <th>Nombre</th>
+                    <th>Número Telefónico</th>
+                    <th>Correo</th>
+                    <th>RFC</th>
+                    <th>Dirrección</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pro of proovedorService.proveedores">
+                        <td>{{pro.nombre}}</td>
+                        <td>{{pro.numero_telefonico}}</td>
+                        <td>{{pro.correo}}</td>
+                        <td>{{pro.rfc}}</td>
+                        <td>{{pro.dirreccion}}</td>
+                        <td>
+                            <a (click)="editProveedores(pro)">
+                                <i class="material-icons">edit</i>
+                            </a>
+                            <a (click)="deleteProveedor(pro._id)">
+                                <i class="material-icons">delete</i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

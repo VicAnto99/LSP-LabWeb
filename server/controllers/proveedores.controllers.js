@@ -12,8 +12,8 @@ proveedorCtrl.createProveedor = async (req, res) => {
         correo: req.body.correo,
         rfc: req.body.rfc,
         dirreccion: req.body.dirreccion
-    });
-    await prueba.save();
+    }); 
+    await proveedor.save();
     res.json({
         mensaje: "Proveedor creado",
         proveedor: proveedor

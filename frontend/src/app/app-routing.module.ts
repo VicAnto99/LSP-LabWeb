@@ -6,6 +6,7 @@ import { IngresarComponent } from './components/ingresar/ingresar.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { PeliculasComponent } from './components/peliculas/peliculas.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { ProveedorComponent } from './components/proveedor/proveedor.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
@@ -21,6 +22,11 @@ const routes: Routes = [
   {
     path: 'perfil',
     component: PerfilComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'proveedor',
+    component: ProveedorComponent,
     canActivate: [AuthGuard]
   },
   {

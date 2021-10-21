@@ -62,7 +62,6 @@ export class PeliculasComponent implements OnInit {
         });
       });
     }
-
   }
   resetForm(form?: NgForm){
     if(form){
