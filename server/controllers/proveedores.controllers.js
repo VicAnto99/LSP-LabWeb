@@ -4,7 +4,7 @@ const proveedorCtrl = { };
 proveedorCtrl.getProveedores = async (req , res) => {
     const proveedores = await Proveedor.find();
     res.json(proveedores);
-}
+};
 proveedorCtrl.createProveedor = async (req, res) => {
     const proveedor = new Proveedor({
         nombre: req.body.nombre,
@@ -18,14 +18,14 @@ proveedorCtrl.createProveedor = async (req, res) => {
         mensaje: "Proveedor creado",
         proveedor: proveedor
     });
-}
+};
 proveedorCtrl.getProveedor = async (req, res) => {
     const proveedor = await Proveedor.findById(req.body.id);
     res.json({
         mensaje: "Proveedor encotrado",
         proveedor: proveedor
     });
-}
+};
 proveedorCtrl.editProveedor = async (req, res) => {
     const {id} = req.params;
     const proveedor = {
@@ -39,12 +39,12 @@ proveedorCtrl.editProveedor = async (req, res) => {
     res.json({
         mensaje:"Proveedor actualizado",
         pelicula: proveedor});
-}
+};
 proveedorCtrl.deleteProveedor = async (req, res) => {
     const {id} = req.params;
     await Proveedor.findByIdAndRemove(id);
     res.json({
         mensaje:"Proveedor eliminada"});
-}
+};
 
 module.exports = proveedorCtrl;
