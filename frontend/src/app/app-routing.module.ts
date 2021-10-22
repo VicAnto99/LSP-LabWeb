@@ -7,6 +7,7 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { PeliculasComponent } from './components/peliculas/peliculas.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { ProveedorComponent } from './components/proveedor/proveedor.component';
+import { ClienteComponent } from './components/cliente/cliente.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
@@ -20,6 +21,11 @@ const routes: Routes = [
     component: IngresarComponent
   },
   {
+    path: 'cliente',
+    component: ClienteComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'perfil',
     component: PerfilComponent,
     canActivate: [AuthGuard]
@@ -31,8 +37,7 @@ const routes: Routes = [
   },
   {
     path: 'info',
-    component: PagosPrivadosComponent,
-    canActivate: [AuthGuard]
+    component: PagosPrivadosComponent
   },
   {
     path: 'pagos',
