@@ -9,33 +9,47 @@
                     <span class="card-title center">Formulario para los Trabajos</span>
                     <form #trabajoForm="ngForm" (ngSubmit)="addPelicula(trabajoForm) ">
                         <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="pagosService.selectedTrabajo._id">
+                        <input type="hidden" name="material_id" #material_id="ngModel" [(ngModel)]="pagosService.selectedTrabajo.material_id">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="pagosService.selectedTrabajo.nombre" placeholder="Ingresa el tipo de material">
+                                <i class="material-icons prefix">work</i>
+                                <input class="validate" id="nombre" type="text" name="nombre" #nombre="ngModel" [(ngModel)]="pagosService.selectedTrabajo.nombre">
+                                <label for="nombre">Nombre del trabajo*</label>
                             </div>
                             <div class="input-field col s12">
-                                <input type="text" name="cliente_nombre" #cliente_nombre="ngModel" [(ngModel)]="pagosService.selectedTrabajo.cliente_nombre" placeholder="Ingresa la medida de material">
+                                <i class="material-icons prefix">people</i>
+                                <input class="validate" id="cliente_nombre" type="text" name="cliente_nombre" #cliente_nombre="ngModel" [(ngModel)]="pagosService.selectedTrabajo.cliente_nombre">
+                                <label for="cliente_nombre">Nombre del Cliente*</label>
                             </div>
                             <div class="input-field col s12">
-                                <input type="text" name="medida_papel" #medida_papel="ngModel" [(ngModel)]="pagosService.selectedTrabajo.medida_papel" placeholder="Ingresa el proveedor del material">
+                                <i class="material-icons prefix">photo_size_select_small</i>
+                                <input class="validate" id="medida_papel" type="text" name="medida_papel" #medida_papel="ngModel" [(ngModel)]="pagosService.selectedTrabajo.medida_papel">
+                                <label for="medida_papel">Medida del papel*</label>
                             </div>
                             <div class="input-field col s12">
-                                <input type="text" name="material_id" #material_id="ngModel" [(ngModel)]="pagosService.selectedTrabajo.material_id" placeholder="Ingresa las unidades del material">
+                                <i class="material-icons prefix">widgets</i>
+                                <input class="validate" id="material_tipo" type="text" name="material_tipo" #material_tipo="ngModel" [(ngModel)]="pagosService.selectedTrabajo.material_tipo">
+                                <label for="material_tipo">Tipo de material*</label>
                             </div>
                             <div class="input-field col s12">
-                                <input type="text" name="material_tipo" #material_tipo="ngModel" [(ngModel)]="pagosService.selectedTrabajo.material_tipo" placeholder="Ingresa las unidades del material">
+                                <i class="material-icons prefix">widgets</i>
+                                <input class="validate" id="material_medida" type="text" name="material_medida" #material_medida="ngModel" [(ngModel)]="pagosService.selectedTrabajo.material_medida">
+                                <label for="material_medida">Medida del material*</label>
                             </div>
                             <div class="input-field col s12">
-                                <input type="text" name="material_medida" #material_medida="ngModel" [(ngModel)]="pagosService.selectedTrabajo.material_medida" placeholder="Ingresa las unidades del material">
+                                <i class="material-icons prefix">timelapse</i>
+                                <input class="validate" id="proceso" type="text" name="proceso" #proceso="ngModel" [(ngModel)]="pagosService.selectedTrabajo.proceso">
+                                <label for="proceso">Proceso*</label>
                             </div>
                             <div class="input-field col s12">
-                                <input type="text" name="proceso" #proceso="ngModel" [(ngModel)]="pagosService.selectedTrabajo.proceso" placeholder="Ingresa las unidades del material">
+                                <i class="material-icons prefix">payment</i>
+                                <input class="validate" id="costo" type="number" name="costo" #costo="ngModel" [(ngModel)]="pagosService.selectedTrabajo.costo">
+                                <label for="costo">Costo*</label>
                             </div>
                             <div class="input-field col s12">
-                                <input type="text" name="costo" #costo="ngModel" [(ngModel)]="pagosService.selectedTrabajo.costo" placeholder="Ingresa las unidades del material">
-                            </div>
-                            <div class="input-field col s12">
-                                <input type="text" name="pago" #pago="ngModel" [(ngModel)]="pagosService.selectedTrabajo.pago" placeholder="Ingresa las unidades del material">
+                                <i class="material-icons prefix">attach_money</i>
+                                <input class="validate" id="pago" type="text" name="pago" #pago="ngModel" [(ngModel)]="pagosService.selectedTrabajo.pago">
+                                <label for="pago">Pago*</label>
                             </div>
                             <div class="card-action">
                                 <div class="input-field col s12">
@@ -51,10 +65,9 @@
         <div class="col s7">
             <table>
                 <thead>
-                    <th>Nombre</th>
+                    <th>Nombre del trabajo</th>
                     <th>Nombre del cliente</th>
                     <th>Medida del papel</th>
-                    <th>Nombre del material</th>
                     <th>Tipo de material</th>
                     <th>Medida del material</th>
                     <th>Proceso</th>
@@ -66,7 +79,6 @@
                         <td>{{trabajo.nombre}}</td>
                         <td>{{trabajo.cliente_nombre}}</td>
                         <td>{{trabajo.medida_papel}}</td>
-                        <td>{{trabajo.material_id}}</td>
                         <td>{{trabajo.material_tipo}}</td>
                         <td>{{trabajo.material_medida}}</td>
                         <td>{{trabajo.proceso}}</td>

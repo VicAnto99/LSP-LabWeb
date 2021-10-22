@@ -1,6 +1,6 @@
 export class Pelicula {
 
-    constructor(_id='', tipo='', medida='', provedor='', unidades=0){
+    constructor(_id='', tipo='', medida='', provedor='', unidades=''){
         this._id = _id;
         this.tipo = tipo;
         this.medida = medida;
@@ -12,5 +12,5 @@ export class Pelicula {
     tipo!: string;
     medida!:string;
     provedor!: string;
-    unidades!: number;
+    unidades!: string;
 }

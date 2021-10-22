@@ -1,6 +1,6 @@
 export class Cliente {
 
-    constructor(_id='', nombre='', rfc='', numero_telefonico='', domicilio=0){
+    constructor(_id='', nombre='', rfc='', numero_telefonico='', domicilio=''){
         this._id = _id;
         this.nombre = nombre;
         this.rfc = rfc;
@@ -12,6 +12,6 @@ export class Cliente {
     nombre!: string;
     rfc!:string;
     numero_telefonico!: string;
-    domicilio!: number;
+    domicilio!: string;
 }
 

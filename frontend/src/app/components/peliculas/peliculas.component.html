@@ -11,16 +11,24 @@
                         <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="peliculaService.selectedPelicula._id">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input type="text" name="tipo" #tipo="ngModel" [(ngModel)]="peliculaService.selectedPelicula.tipo" placeholder="Ingresa el tipo de material">
+                                <i class="material-icons prefix">style</i>
+                                <input class="validate" id="tipo" type="text" name="tipo" #tipo="ngModel" [(ngModel)]="peliculaService.selectedPelicula.tipo">
+                                <label for="tipo">Tipo*</label>
                             </div>
                             <div class="input-field col s12">
-                                <input type="text" name="medida" #medida="ngModel" [(ngModel)]="peliculaService.selectedPelicula.medida" placeholder="Ingresa la medida de material">
+                                <i class="material-icons prefix">photo_size_select_small</i>
+                                <input class="validate" id="medida" type="text" name="medida" #medida="ngModel" [(ngModel)]="peliculaService.selectedPelicula.medida">
+                                <label for="medida">Medida*</label>
                             </div>
                             <div class="input-field col s12">
-                                <input type="text" name="provedor" #provedor="ngModel" [(ngModel)]="peliculaService.selectedPelicula.provedor" placeholder="Ingresa el proveedor del material">
+                                <i class="material-icons prefix">local_grocery_store</i>
+                                <input class="validate" id="provedor" type="text" name="provedor" #provedor="ngModel" [(ngModel)]="peliculaService.selectedPelicula.provedor">
+                                <label for="provedor">Proveedor*</label>
                             </div>
                             <div class="input-field col s12">
-                                <input type="text" name="unidades" #unidades="ngModel" [(ngModel)]="peliculaService.selectedPelicula.unidades" placeholder="Ingresa las unidades del material">
+                                <i class="material-icons prefix">format_list_numbered</i>
+                                <input class="validate" id="unidades" type="number" name="unidades" #unidades="ngModel" [(ngModel)]="peliculaService.selectedPelicula.unidades">
+                                <label for="unidades">Unidades*</label>
                             </div>
                             <div class="card-action">
                                 <div class="input-field col s12">

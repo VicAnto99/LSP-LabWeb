@@ -11,16 +11,24 @@
                         <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="clienteService.selectedCliente._id">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="clienteService.selectedCliente.nombre" placeholder="Ingresa el tipo de material">
+                                <i class="material-icons prefix">account_box</i>
+                                <input class="validate" id="nombre" type="text" name="nombre" #nombre="ngModel" [(ngModel)]="clienteService.selectedCliente.nombre">
+                                <label for="nombre">Nombre*</label>
                             </div>
                             <div class="input-field col s12">
-                                <input type="text" name="rfc" #rfc="ngModel" [(ngModel)]="clienteService.selectedCliente.rfc" placeholder="Ingresa la medida de material">
+                                <i class="material-icons prefix">business</i>
+                                <input class="validate" id="rfc" type="text" name="rfc" #rfc="ngModel" [(ngModel)]="clienteService.selectedCliente.rfc">
+                                <label for="rfc">Nombre*</label>
                             </div>
                             <div class="input-field col s12">
-                                <input type="text" name="numero_telefonico" #numero_telefonico="ngModel" [(ngModel)]="clienteService.selectedCliente.numero_telefonico" placeholder="Ingresa el proveedor del material">
+                                <i class="material-icons prefix">contact_phone</i>
+                                <input class="numero_telefonico" id="nombre" type="text" name="numero_telefonico" #numero_telefonico="ngModel" [(ngModel)]="clienteService.selectedCliente.numero_telefonico">
+                                <label for="numero_telefonico">Número de teléfono*</label>
                             </div>
                             <div class="input-field col s12">
-                                <input type="text" name="domicilio" #domicilio="ngModel" [(ngModel)]="clienteService.selectedCliente.domicilio" placeholder="Ingresa las unidades del material">
+                                <i class="material-icons prefix">add_location</i>
+                                <input class="validate" id="domicilio" type="text" name="domicilio" #domicilio="ngModel" [(ngModel)]="clienteService.selectedCliente.domicilio">
+                                <label for="domicilio">Domicilio*</label>
                             </div>
                             <div class="card-action">
                                 <div class="input-field col s12">

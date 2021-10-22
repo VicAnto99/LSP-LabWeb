@@ -11,19 +11,29 @@
                         <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="proovedorService.selectedProveedor._id">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="proovedorService.selectedProveedor.nombre" placeholder="Ingresa el tipo Nombre">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input class="validate" type="text" id="nombre" name="nombre" #nombre="ngModel" [(ngModel)]="proovedorService.selectedProveedor.nombre">
+                                <label for="nombre">Nombre*</label>
                             </div>
                             <div class="input-field col s12">
-                                <input type="text" name="numero_telefonico" #numero_telefonico="ngModel" [(ngModel)]="proovedorService.selectedProveedor.numero_telefonico" placeholder="Ingresa numero_telefonico">
+                                <i class="material-icons prefix">contact_phone</i>
+                                <input class="validate" type="number" id="numero_telefonico" name="numero_telefonico" #numero_telefonico="ngModel" [(ngModel)]="proovedorService.selectedProveedor.numero_telefonico">
+                                <label for="numero_telefonico">Número de teléfono*</label>
                             </div>
                             <div class="input-field col s12">
-                                <input type="text" name="correo" #correo="ngModel" [(ngModel)]="proovedorService.selectedProveedor.correo" placeholder="Ingresa el correo">
+                                <i class="material-icons prefix">contact_mail</i>
+                                <input class="validate" type="email" id="correo" name="correo" #correo="ngModel" [(ngModel)]="proovedorService.selectedProveedor.correo">
+                                <label for="correo">Correo*</label>
                             </div>
                             <div class="input-field col s12">
-                                <input type="text" name="rfc" #rfc="ngModel" [(ngModel)]="proovedorService.selectedProveedor.rfc" placeholder="Ingresa rfc">
+                                <i class="material-icons prefix">business</i>
+                                <input class="validate" type="text" id="rfc" name="rfc" #rfc="ngModel" [(ngModel)]="proovedorService.selectedProveedor.rfc">
+                                <label for="rfc">RFC*</label>
                             </div>
                             <div class="input-field col s12">
-                                <input type="text" name="dirreccion" #dirreccion="ngModel" [(ngModel)]="proovedorService.selectedProveedor.dirreccion" placeholder="Ingresa dirrecion">
+                                <i class="material-icons prefix">add_location</i>
+                                <input class="validate" id="dirreccion" type="text" name="dirreccion" #dirreccion="ngModel" [(ngModel)]="proovedorService.selectedProveedor.dirreccion">
+                                <label for="dirreccion">Domicilio*</label>
                             </div>
                             <div class="card-action">
                                 <div class="input-field col s12">
@@ -40,7 +50,7 @@
             <table>
                 <thead>
                     <th>Nombre</th>
-                    <th>Número Telefónico</th>
+                    <th>Número de teléfono</th>
                     <th>Correo</th>
                     <th>RFC</th>
                     <th>Dirrección</th>
