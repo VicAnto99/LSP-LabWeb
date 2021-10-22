@@ -15,13 +15,15 @@ peliculasCtrl.createPeliculas = async (req, res) => {
     await pelicula.save();
     res.json({
         mensaje:"Pelicula creada",
-        pelicula: pelicula});
+        pelicula: pelicula
+    });
 };
 peliculasCtrl.getPelicula = async (req, res) => {
     const pelicula = await Pelicula.findById(req.body.id);
     res.json({
-        mensaje:"Pelicula encontrada",
-        pelicula: pelicula});
+        mensaje: "Pelicula encontrada",
+        pelicula: pelicula
+    });
 };
 peliculasCtrl.editPelicula = async (req, res) => {
     const {id} = req.params;
@@ -34,13 +36,15 @@ peliculasCtrl.editPelicula = async (req, res) => {
     await Pelicula.findByIdAndUpdate(id, {$set: pelicula}, {new: true});
     res.json({
         mensaje:"Pelicula actualizada",
-        pelicula: pelicula});
+        pelicula: pelicula
+    });
 };
 peliculasCtrl.deletePelicula = async (req, res) => {
     const {id} = req.params;
     await Pelicula.findByIdAndRemove(id);
     res.json({
-        mensaje:"Pelicula eliminada"});
+        mensaje: "Pelicula eliminada"
+    });
 };
 
 module.exports = peliculasCtrl;

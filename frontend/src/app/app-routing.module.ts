@@ -40,7 +40,7 @@ const routes: Routes = [
     component: PagosPrivadosComponent
   },
   {
-    path: 'pagos',
+    path: 'trabajo',
     component: PagosComponent,
     canActivate: [AuthGuard]
   },

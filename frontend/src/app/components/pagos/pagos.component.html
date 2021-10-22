@@ -1,81 +1,88 @@
 <div class="container">
     <div class="col s12 center title">
-        <h4 class="z-depth-2">Pagos</h4>
+        <h4 class="z-depth-2">Trabajos</h4>
     </div>
-    <div class="col s7">
-        <table>
-            <thead>
-                <th>Cliente</th>
-                <th>Descripción</th>
-                <th>Pago</th>
-            </thead>
-            <tbody>
-                <!--<tr *ngFor="let pago of pagos">
-                    <td>{{pago.cliente}}</td>
-                    <td>{{pago.descripcion}}</td>
-                    <td>{{pago.pago}}</td>
-                    <td>
-                        <a>
-                            <i class="material-icons">edit</i>
-                        </a>
-                        <a>
-                            <i class="material-icons">delete</i>
-                        </a>
-                    </td>
-                </tr>-->
-                <tr>
-                    <td>Victor Godinez</td>
-                    <td>Pago por el trabajo Los juegos del hambre</td>
-                    <td>$500</td>
-                    <td>
-                        <a>
-                            <i class="material-icons">edit</i>
-                        </a>
-                        <a>
-                            <i class="material-icons">delete</i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Raul Gonzalez</td>
-                    <td>Pago por el trabajo Señor de los anillos</td>
-                    <td>$1500</td>
-                    <td>
-                        <a>
-                            <i class="material-icons">edit</i>
-                        </a>
-                        <a>
-                            <i class="material-icons">delete</i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Omar Robledo</td>
-                    <td>Pago por el trabajo Nutry Grago</td>
-                    <td>$5000</td>
-                    <td>
-                        <a>
-                            <i class="material-icons">edit</i>
-                        </a>
-                        <a>
-                            <i class="material-icons">delete</i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Diego Levy</td>
-                    <td>Pago por el trabajo Valorant</td>
-                    <td>$300</td>
-                    <td>
-                        <a>
-                            <i class="material-icons">edit</i>
-                        </a>
-                        <a>
-                            <i class="material-icons">delete</i>
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="row">
+        <div class="col s5">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title center">Formulario para los Trabajos</span>
+                    <form #trabajoForm="ngForm" (ngSubmit)="addPelicula(trabajoForm) ">
+                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="pagosService.selectedTrabajo._id">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="pagosService.selectedTrabajo.nombre" placeholder="Ingresa el tipo de material">
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="cliente_nombre" #cliente_nombre="ngModel" [(ngModel)]="pagosService.selectedTrabajo.cliente_nombre" placeholder="Ingresa la medida de material">
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="medida_papel" #medida_papel="ngModel" [(ngModel)]="pagosService.selectedTrabajo.medida_papel" placeholder="Ingresa el proveedor del material">
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="material_id" #material_id="ngModel" [(ngModel)]="pagosService.selectedTrabajo.material_id" placeholder="Ingresa las unidades del material">
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="material_tipo" #material_tipo="ngModel" [(ngModel)]="pagosService.selectedTrabajo.material_tipo" placeholder="Ingresa las unidades del material">
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="material_medida" #material_medida="ngModel" [(ngModel)]="pagosService.selectedTrabajo.material_medida" placeholder="Ingresa las unidades del material">
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="proceso" #proceso="ngModel" [(ngModel)]="pagosService.selectedTrabajo.proceso" placeholder="Ingresa las unidades del material">
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="costo" #costo="ngModel" [(ngModel)]="pagosService.selectedTrabajo.costo" placeholder="Ingresa las unidades del material">
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="pago" #pago="ngModel" [(ngModel)]="pagosService.selectedTrabajo.pago" placeholder="Ingresa las unidades del material">
+                            </div>
+                            <div class="card-action">
+                                <div class="input-field col s12">
+                                    <button class="btn #90caf9 blue lighten-3" (click)="resetForm(trabajoForm)">Limpiar</button>
+                                    <button class="btn right #90caf9 blue lighten-3">Enviar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col s7">
+            <table>
+                <thead>
+                    <th>Nombre</th>
+                    <th>Nombre del cliente</th>
+                    <th>Medida del papel</th>
+                    <th>Nombre del material</th>
+                    <th>Tipo de material</th>
+                    <th>Medida del material</th>
+                    <th>Proceso</th>
+                    <th>Costo</th>
+                    <th>Pago</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let trabajo of pagosService.trabajos">
+                        <td>{{trabajo.nombre}}</td>
+                        <td>{{trabajo.cliente_nombre}}</td>
+                        <td>{{trabajo.medida_papel}}</td>
+                        <td>{{trabajo.material_id}}</td>
+                        <td>{{trabajo.material_tipo}}</td>
+                        <td>{{trabajo.material_medida}}</td>
+                        <td>{{trabajo.proceso}}</td>
+                        <td>{{trabajo.costo}}</td>
+                        <td>{{trabajo.pago}}</td>
+                        <td>
+                            <a (click)="editRrabajo(trabajo)">
+                                <i class="material-icons">edit</i>
+                            </a>
+                            <a (click)="deleteTrabajo(trabajo._id)">
+                                <i class="material-icons">delete</i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

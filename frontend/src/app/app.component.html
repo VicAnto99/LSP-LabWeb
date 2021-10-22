@@ -15,8 +15,7 @@
             <ng-container *ngIf="!authService.loggedIn(); else salir2"></ng-container>
             <ng-template #salir2>
                 <li><a routerLink="/material" class="active hoverable">Material</a></li>
-                <li><a routerLink="/pagos" class="active hoverable">Pagos</a></li>
-                <li><a routerLink="/info" class="active hoverable">Trabajos</a></li>
+                <li><a routerLink="/trabajo" class="active hoverable">Trabajos</a></li>
                 <li><a routerLink="/proveedor" class="active hoverable">Proveedores</a></li>
                 <li><a routerLink="/cliente" class="active hoverable">Clientes</a></li>
             </ng-template>
