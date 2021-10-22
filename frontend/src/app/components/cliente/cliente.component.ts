@@ -17,6 +17,7 @@ export class ClienteComponent implements OnInit {
   constructor(public clienteService: ClienteService) { }
 
   ngOnInit(): void {
+    this.getClientes();
   }
 
   addCliente(form: NgForm){
@@ -35,7 +36,7 @@ export class ClienteComponent implements OnInit {
       .subscribe(res=>{
       this.resetForm(form);
         M.toast({
-          html: 'Pelicula creada! :)'
+          html: 'Cliente modificado! :)'
         });
         this.getClientes();
       });
@@ -57,7 +58,7 @@ export class ClienteComponent implements OnInit {
         .subscribe(res=>{
           this.getClientes();
         M.toast({
-          html: 'Pelicula eliminada correctamente!'
+          html: 'Cliente eliminado correctamente!'
         });
       });
     }
