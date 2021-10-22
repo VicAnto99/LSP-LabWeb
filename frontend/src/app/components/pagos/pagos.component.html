@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="trabajos_vista" style="display: block;">
     <div class="col s12 center title">
         <h4 class="z-depth-2">Trabajos</h4>
     </div>
@@ -9,7 +9,9 @@
                     <span class="card-title center">Formulario para los Trabajos</span>
                     <form #trabajoForm="ngForm" (ngSubmit)="addPelicula(trabajoForm) ">
                         <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="pagosService.selectedTrabajo._id">
-                        <input type="hidden" name="material_id" #material_id="ngModel" [(ngModel)]="pagosService.selectedTrabajo.material_id">
+                        <!-- 
+                            <input type="hidden" name="material_id" #material_id="ngModel" [(ngModel)]="pagosService.selectedTrabajo.material_id">
+                        -->
                         <div class="row">
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">work</i>
@@ -18,8 +20,14 @@
                             </div>
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">people</i>
-                                <input class="validate" id="cliente_nombre" type="text" name="cliente_nombre" #cliente_nombre="ngModel" [(ngModel)]="pagosService.selectedTrabajo.cliente_nombre">
-                                <label for="cliente_nombre">Nombre del Cliente*</label>
+                                <select class="browser-default validate" id="cliente_nombre" name="cliente_nombre" #cliente_nombre="ngModel" [(ngModel)]="pagosService.selectedTrabajo.cliente_nombre" style="width: 90%; margin-left: 12%;">
+                                    <option value="" disabled selected>Nombre del Cliente*</option>
+                                    <option value="ImprentaG's de México S.A de C.V">ImprentaG's de México S.A de C.V</option>
+                                    <option value="Impresiones Torres, S.A de C.V">Impresiones Torres, S.A de C.V</option>
+                                    <option value="Mujica Impresor S.A de C.V">Mujica Impresor S.A de C.V</option>
+                                    <option value="Natosa Impresores S.A de C.V">Natosa Impresores S.A de C.V</option>
+                                    <option value="Puan Express S.A de C.V">Puan Express S.A de C.V</option>
+                                </select>
                             </div>
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">photo_size_select_small</i>
@@ -28,28 +36,67 @@
                             </div>
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">widgets</i>
-                                <input class="validate" id="material_tipo" type="text" name="material_tipo" #material_tipo="ngModel" [(ngModel)]="pagosService.selectedTrabajo.material_tipo">
-                                <label for="material_tipo">Tipo de material*</label>
+                                <select class="browser-default validate" id="material_tipo" name="material_tipo" #material_tipo="ngModel" [(ngModel)]="pagosService.selectedTrabajo.material_tipo" style="width: 90%; margin-left: 12%;">
+                                    <option value="" disabled selected>Tipo de material*</option>
+                                    <option value="Brillante">Brillante</option>
+                                    <option value="Holograma">Holograma</option>
+                                    <option value="Mate">Mate</option>
+                                    <option value="Metalizado Plata">Metalizado Plata</option>
+                                    <option value="Soft Touch">Soft Touch</option>
+                                </select>
                             </div>
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">widgets</i>
-                                <input class="validate" id="material_medida" type="text" name="material_medida" #material_medida="ngModel" [(ngModel)]="pagosService.selectedTrabajo.material_medida">
-                                <label for="material_medida">Medida del material*</label>
+                                <select class="browser-default validate" id="material_medida" name="material_medida" #material_medida="ngModel" [(ngModel)]="pagosService.selectedTrabajo.material_medida" style="width: 90%; margin-left: 12%;">
+                                    <option value="" disabled selected>Medida del material*</option>
+                                    <option value="28 cm">28 cm</option>
+                                    <option value="30 cm">30 cm</option>
+                                    <option value="32 cm">32 cm</option>
+                                    <option value="34 cm">34 cm</option>
+                                    <option value="36.5 cm">36.5 cm</option>
+                                    <option value="40 cm">40 cm</option>
+                                    <option value="44.5 cm">44.5 cm</option>
+                                    <option value="47 cm">47 cm</option>
+                                    <option value="50.5 cm">50.5 cm</option>
+                                    <option value="52 cm">52 cm</option>
+                                    <option value="55 cm">55 cm</option>
+                                    <option value="57 cm">57 cm</option>
+                                    <option value="59 cm">59 cm</option>
+                                    <option value="61 cm">61 cm</option>
+                                    <option value="62 cm">62 cm</option>
+                                    <option value="65 cm">65 cm</option>
+                                    <option value="70 cm">70 cm</option>
+                                    <option value="72 cm">72 cm</option>
+                                </select>
                             </div>
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">timelapse</i>
-                                <input class="validate" id="proceso" type="text" name="proceso" #proceso="ngModel" [(ngModel)]="pagosService.selectedTrabajo.proceso">
-                                <label for="proceso">Proceso*</label>
+                                <select class="browser-default validate" id="proceso" name="proceso" #proceso="ngModel" [(ngModel)]="pagosService.selectedTrabajo.proceso" style="width: 90%; margin-left: 12%;">
+                                    <option value="" disabled selected>Proceso*</option>
+                                    <option value="Recibido">Recibido</option>
+                                    <option value="En proceso*">En proceso*</option>
+                                    <option value="Maquilación*">Maquilación*</option>
+                                    <option value="Terminado">Terminado</option>
+                                    <option value="Entregado">Entregado</option>
+                                    <option value="Cancelado">Cancelado</option>
+                                </select>
                             </div>
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">payment</i>
-                                <input class="validate" id="costo" type="number" name="costo" #costo="ngModel" [(ngModel)]="pagosService.selectedTrabajo.costo">
-                                <label for="costo">Costo*</label>
+                                <select class="browser-default validate" id="costo" name="costo" #costo="ngModel" [(ngModel)]="pagosService.selectedTrabajo.costo" style="width: 90%; margin-left: 12%;">
+                                    <option value="" disabled selected>Método de pago*</option>
+                                    <option value="Efectivo">Efectivo</option>
+                                    <option value="Cheque">Cheque</option>
+                                    <option value="Transferencia Electrónica">Transferencia Electrónica</option>
+                                    <option value="Tarjeta de Crédito">Tarjeta de Crédito</option>
+                                    <option value="Tarjeta de Débito">Tarjeta de Débito</option>
+                                    <option value="Por Definir">Por Definir</option>
+                                </select>
                             </div>
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">attach_money</i>
                                 <input class="validate" id="pago" type="text" name="pago" #pago="ngModel" [(ngModel)]="pagosService.selectedTrabajo.pago">
-                                <label for="pago">Pago*</label>
+                                <label for="pago">Costo*</label>
                             </div>
                             <div class="card-action">
                                 <div class="input-field col s12">
@@ -71,8 +118,8 @@
                     <th>Tipo de material</th>
                     <th>Medida del material</th>
                     <th>Proceso</th>
+                    <th>Método de pago</th>
                     <th>Costo</th>
-                    <th>Pago</th>
                 </thead>
                 <tbody>
                     <tr *ngFor="let trabajo of pagosService.trabajos">
@@ -91,7 +138,38 @@
                             <a (click)="deleteTrabajo(trabajo._id)">
                                 <i class="material-icons">delete</i>
                             </a>
+                            <a>
+                                <i class="material-icons">history</i>
+                            </a>
                         </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="container center" id="historial_vista" style="display: block;">
+    <div class="col center title">
+        <h4 class="z-depth-2">Historial de trabajos</h4>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table>
+                <thead>
+                    <th>Atributo editado</th>
+                    <th>Valor anterior</th>
+                    <th>Valor nuevo</th>
+                    <th>Usuario</th>
+                    <th>Fecha de modificación</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let historial of historialService.historial">
+                        <td>{{historial.atributo_editado}}</td>
+                        <td>{{historial.valor_anterior}}</td>
+                        <td>{{historial.valor_nuevo}}</td>
+                        <td>{{historial.usuario}}</td>
+                        <td>{{historial.createdAt}}</td>
                     </tr>
                 </tbody>
             </table>

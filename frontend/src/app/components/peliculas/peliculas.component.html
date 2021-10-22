@@ -12,18 +12,49 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">style</i>
-                                <input class="validate" id="tipo" type="text" name="tipo" #tipo="ngModel" [(ngModel)]="peliculaService.selectedPelicula.tipo">
-                                <label for="tipo">Tipo*</label>
+                                <select class="browser-default validate" id="tipo" name="tipo" #tipo="ngModel" [(ngModel)]="peliculaService.selectedPelicula.tipo" style="width: 90%; margin-left: 12%;">
+                                    <option value="" disabled selected>Tipo*</option>
+                                    <option value="Brillante">Brillante</option>
+                                    <option value="Holograma">Holograma</option>
+                                    <option value="Mate">Mate</option>
+                                    <option value="Metalizado Plata">Metalizado Plata</option>
+                                    <option value="Soft Touch">Soft Touch</option>
+                                </select>
                             </div>
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">photo_size_select_small</i>
-                                <input class="validate" id="medida" type="text" name="medida" #medida="ngModel" [(ngModel)]="peliculaService.selectedPelicula.medida">
-                                <label for="medida">Medida*</label>
+                                <select class="browser-default validate" id="medida" name="medida" #medida="ngModel" [(ngModel)]="peliculaService.selectedPelicula.medida" style="width: 90%; margin-left: 12%;">
+                                    <option value="" disabled selected>Medida*</option>
+                                    <option value="28 cm">28 cm</option>
+                                    <option value="30 cm">30 cm</option>
+                                    <option value="32 cm">32 cm</option>
+                                    <option value="34 cm">34 cm</option>
+                                    <option value="36.5 cm">36.5 cm</option>
+                                    <option value="40 cm">40 cm</option>
+                                    <option value="44.5 cm">44.5 cm</option>
+                                    <option value="47 cm">47 cm</option>
+                                    <option value="50.5 cm">50.5 cm</option>
+                                    <option value="52 cm">52 cm</option>
+                                    <option value="55 cm">55 cm</option>
+                                    <option value="57 cm">57 cm</option>
+                                    <option value="59 cm">59 cm</option>
+                                    <option value="61 cm">61 cm</option>
+                                    <option value="62 cm">62 cm</option>
+                                    <option value="65 cm">65 cm</option>
+                                    <option value="70 cm">70 cm</option>
+                                    <option value="72 cm">72 cm</option>
+                                </select>
                             </div>
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">local_grocery_store</i>
-                                <input class="validate" id="provedor" type="text" name="provedor" #provedor="ngModel" [(ngModel)]="peliculaService.selectedPelicula.provedor">
-                                <label for="provedor">Proveedor*</label>
+                                <select class="browser-default validate" id="provedor" name="provedor" #provedor="ngModel" [(ngModel)]="peliculaService.selectedPelicula.provedor" style="width: 90%; margin-left: 12%;">
+                                    <option value="" disabled selected>Proveedor*</option>
+                                    <option value="CIASA">CIASA</option>
+                                    <option value="EMDO">EMDO</option>
+                                    <option value="Peliculas y Laminado">Peliculas y Laminado</option>
+                                    <option value="Polipropimex">Polipropimex</option>
+                                    <option value="Sajo">Sajo</option>
+                                </select>
                             </div>
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">format_list_numbered</i>
