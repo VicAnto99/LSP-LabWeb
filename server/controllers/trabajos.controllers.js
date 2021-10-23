@@ -1,6 +1,43 @@
 const Trabajo = require('../models/trabajo');
 const trabajosCtrl = { };
 
+trabajosCtrl.getRecibido = async (req, res) => {
+    const trabajos = await Trabajo.find({
+         'proceso': 'Recibido'
+    });
+    res.json(trabajos);
+}
+trabajosCtrl.getMaquilacion = async (req, res) => {
+    const trabajos = await Trabajo.find({
+        'proceso': 'Maquilación*'
+   });
+    res.json(trabajos);
+};
+trabajosCtrl.getTerminado= async (req, res) => {
+    const trabajos = await Trabajo.find({
+        'proceso': 'Terminado'
+   });
+    res.json(trabajos);
+};
+trabajosCtrl.getEnproceso= async (req, res) => {
+    const trabajos = await Trabajo.find({
+        'proceso': 'En proceso*'
+   });
+    res.json(trabajos);
+};
+trabajosCtrl.getEntregado= async (req, res) => {
+    const trabajos = await Trabajo.find({
+        'proceso': 'Entregado'
+   });
+    res.json(trabajos);
+};
+trabajosCtrl.getCancelado= async (req, res) => {
+    const trabajos = await Trabajo.find({
+        'proceso': 'Cancelado'
+   });
+    res.json(trabajos);
+};
+
 trabajosCtrl.getTrabajos = async (req, res) => {
     const trabajos = await Trabajo.find();
     res.json(trabajos);

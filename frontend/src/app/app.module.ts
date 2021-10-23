@@ -13,7 +13,8 @@ import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { ProveedorComponent } from './components/proveedor/proveedor.component';
-import { ClienteComponent } from './components/cliente/cliente.component'
+import { ClienteComponent } from './components/cliente/cliente.component';
+import { ProcesosComponent } from './components/procesos/procesos.component'
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ClienteComponent } from './components/cliente/cliente.component'
     PagosPrivadosComponent,
     PerfilComponent,
     ProveedorComponent,
-    ClienteComponent
+    ClienteComponent,
+    ProcesosComponent
   ],
   imports: [
     BrowserModule,

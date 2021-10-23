@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="col center title">
+        <h4 class="z-depth-2">Procesos</h4>
+    </div>
+    <div class="row">
+        <div class="col">
+            <select id="men" class="browser-default validate">
+                <option value="" disabled selected>Selecciona el tipo de busqueda*</option>
+                <option value="Recibido">Recibido</option>
+                <option value="Enproceso">En proceso</option>
+                <option value="Maquilación">Maquilación</option>
+                <option value="Terminado">Terminado</option>
+                <option value="Entregado">Entregado</option>
+                <option value="Cancelado">Cancelado</option>
+                <option value="General">General</option>
+            </select>
+        </div>
+        <div class="col">
+            <input class="btn right #90caf9 blue lighten-3" type="button" value="Buscar" (click)="seleccion()">
+        </div>
+    </div>
+    <div class="col">
+        <table>
+            <thead>
+                <th>Nombre del trabajo</th>
+                <th>Nombre del cliente</th>
+                <th>Medida del papel</th>
+                <th>Tipo de material</th>
+                <th>Medida del material</th>
+                <th>Proceso</th>
+                <th>Método de pago</th>
+                <th>Costo</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let trabajo of pagosService.trabajos">
+                    <td>{{trabajo.nombre}}</td>
+                    <td>{{trabajo.cliente_nombre}}</td>
+                    <td>{{trabajo.medida_papel}}</td>
+                    <td>{{trabajo.material_tipo}}</td>
+                    <td>{{trabajo.material_medida}}</td>
+                    <td>{{trabajo.proceso}}</td>
+                    <td>{{trabajo.costo}}</td>
+                    <td>{{trabajo.pago}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -8,6 +8,7 @@ import { PeliculasComponent } from './components/peliculas/peliculas.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { ProveedorComponent } from './components/proveedor/proveedor.component';
 import { ClienteComponent } from './components/cliente/cliente.component';
+import { ProcesosComponent } from './components/procesos/procesos.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
@@ -19,6 +20,11 @@ const routes: Routes = [
   {
     path: 'ingresar',
     component: IngresarComponent
+  },
+  {
+    path: 'proceso',
+    component: ProcesosComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'cliente',

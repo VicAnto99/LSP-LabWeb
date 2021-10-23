@@ -20,6 +20,24 @@ export class PagosService {
   getTrabajos(){
     return this.http.get(this.URL_API);
   }
+  getRecibido(){
+    return this.http.get(this.URL_API+`/Recibido`);
+  }
+  getMaquilacion(){
+    return this.http.get(this.URL_API+`/Maquilacion`);
+  }
+  getTerminado(){
+    return this.http.get(this.URL_API+`/Terminado`);
+  }
+  getEnproceso(){
+    return this.http.get(this.URL_API+`/Enproceso`);
+  }
+  getEntregado(){
+    return this.http.get(this.URL_API+`/Entregado`);
+  }
+  getCancelado(){
+    return this.http.get(this.URL_API+`/Cancelado`);
+  }
   postTrabajo(Trabajo: Trabajo){
     return this.http.post(this.URL_API, Trabajo);
   }
