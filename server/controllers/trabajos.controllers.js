@@ -7,34 +7,70 @@ trabajosCtrl.getRecibido = async (req, res) => {
     });
     res.json(trabajos);
 }
+trabajosCtrl.getRecibidoCount = async (req, res) => {
+    const trabajos = await Trabajo.find({
+         'proceso': 'Recibido'
+    }).count();
+    res.json(trabajos);
+}
 trabajosCtrl.getMaquilacion = async (req, res) => {
     const trabajos = await Trabajo.find({
         'proceso': 'Maquilación*'
    });
     res.json(trabajos);
 };
-trabajosCtrl.getTerminado= async (req, res) => {
+trabajosCtrl.getMaquilacionCount = async (req, res) => {
+    const trabajos = await Trabajo.find({
+        'proceso': 'Maquilación*'
+   }).count();
+    res.json(trabajos);
+};
+trabajosCtrl.getTerminado = async (req, res) => {
     const trabajos = await Trabajo.find({
         'proceso': 'Terminado'
    });
     res.json(trabajos);
 };
-trabajosCtrl.getEnproceso= async (req, res) => {
+trabajosCtrl.getTerminadoCount = async (req, res) => {
+    const trabajos = await Trabajo.find({
+        'proceso': 'Terminado'
+   }).count();
+    res.json(trabajos);
+};
+trabajosCtrl.getEnproceso = async (req, res) => {
     const trabajos = await Trabajo.find({
         'proceso': 'En proceso*'
    });
     res.json(trabajos);
 };
-trabajosCtrl.getEntregado= async (req, res) => {
+trabajosCtrl.getEnprocesoCount = async (req, res) => {
+    const trabajos = await Trabajo.find({
+        'proceso': 'En proceso*'
+   }).count();
+    res.json(trabajos);
+};
+trabajosCtrl.getEntregado = async (req, res) => {
     const trabajos = await Trabajo.find({
         'proceso': 'Entregado'
    });
     res.json(trabajos);
 };
-trabajosCtrl.getCancelado= async (req, res) => {
+trabajosCtrl.getEntregadoCount = async (req, res) => {
+    const trabajos = await Trabajo.find({
+        'proceso': 'Entregado'
+   }).count();
+    res.json(trabajos);
+};
+trabajosCtrl.getCancelado = async (req, res) => {
     const trabajos = await Trabajo.find({
         'proceso': 'Cancelado'
    });
+    res.json(trabajos);
+};
+trabajosCtrl.getCanceladoCount = async (req, res) => {
+    const trabajos = await Trabajo.find({
+        'proceso': 'Cancelado'
+   }).count();
     res.json(trabajos);
 };
 

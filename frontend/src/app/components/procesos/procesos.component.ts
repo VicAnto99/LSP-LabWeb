@@ -24,9 +24,7 @@ export class ProcesosComponent implements OnInit {
       console.log(res);
     });
   }
-  getRecibido (){
-    let div = document.getElementById("Recibido");
-
+  getRecibido(){
     this.pagosService.getRecibido()
     .subscribe(res=>{
       this.pagosService.trabajos = res as Trabajo[];

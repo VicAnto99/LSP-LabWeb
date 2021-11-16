@@ -38,7 +38,7 @@ export class IngresarComponent implements OnInit {
       localStorage.setItem('numero_telefonico', res.numero_telefonico);
       localStorage.setItem('password', res.password);
       localStorage.setItem('email', res.email);
-      this.router.navigate(['/material']);
+      this.router.navigate(['/dashboard']);
     }, err => {
       alert("Correo o Contraseña incorrecta, intenta de nuevo.");
       console.log(err)

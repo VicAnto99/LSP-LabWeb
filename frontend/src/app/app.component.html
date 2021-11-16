@@ -10,10 +10,17 @@
                 <li><a routerLink="/perfil" class="active hoverable">Perfil</a></li>
             </ng-template>
         </ul>
-        <a routerLink="/info" class="brand-logo center hoverable" >Laminado Sobre Papel (LSP)</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <ng-container *ngIf="!authService.loggedIn(); else salir2"></ng-container>
+        <ul> 
+            <ng-container *ngIf="!authService.loggedIn(); else salir2">
+                <li><a routerLink="/info" class="brand-logo center hoverable" >Laminado Sobre Papel (LSP)</a></li>
+            </ng-container>
             <ng-template #salir2>
+                <li><a routerLink="/dashboard" class="brand-logo center hoverable" >Página principal</a></li>
+            </ng-template>
+        </ul>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <ng-container *ngIf="!authService.loggedIn(); else salir3"></ng-container>
+            <ng-template #salir3>
                 <li><a routerLink="/cliente" class="active hoverable">Clientes</a></li>
                 <li><a routerLink="/material" class="active hoverable">Material</a></li>
                 <li><a routerLink="/proceso" class="active hoverable">Procesos</a></li>

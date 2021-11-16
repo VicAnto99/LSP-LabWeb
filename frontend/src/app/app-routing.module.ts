@@ -9,6 +9,7 @@ import { PerfilComponent } from './components/perfil/perfil.component';
 import { ProveedorComponent } from './components/proveedor/proveedor.component';
 import { ClienteComponent } from './components/cliente/cliente.component';
 import { ProcesosComponent } from './components/procesos/procesos.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
@@ -18,8 +19,21 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'info',
+    component: PagosPrivadosComponent
+  },
+  {
     path: 'ingresar',
     component: IngresarComponent
+  },
+  {
+    path: 'registro',
+    component: RegistroComponent
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'proceso',
@@ -42,17 +56,9 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'info',
-    component: PagosPrivadosComponent
-  },
-  {
     path: 'trabajo',
     component: PagosComponent,
     canActivate: [AuthGuard]
-  },
-  {
-    path: 'registro',
-    component: RegistroComponent
   },
   {
     path: 'material',

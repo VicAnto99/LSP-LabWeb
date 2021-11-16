@@ -14,7 +14,8 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { ProveedorComponent } from './components/proveedor/proveedor.component';
 import { ClienteComponent } from './components/cliente/cliente.component';
-import { ProcesosComponent } from './components/procesos/procesos.component'
+import { ProcesosComponent } from './components/procesos/procesos.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component'
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ProcesosComponent } from './components/procesos/procesos.component'
     PerfilComponent,
     ProveedorComponent,
     ClienteComponent,
-    ProcesosComponent
+    ProcesosComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

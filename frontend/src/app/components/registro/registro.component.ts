@@ -44,7 +44,7 @@ export class RegistroComponent implements OnInit {
       localStorage.setItem('numero_telefonico', res.numero_telefonico);
       localStorage.setItem('password', res.password);
       localStorage.setItem('email', res.email);
-      this.router.navigate(['/material']);
+      this.router.navigate(['/dashboard']);
     }, err => {
       alert("Llena todos los campos");
       console.log(err)
