@@ -5,6 +5,7 @@ import { Trabajo } from 'src/app/models/trabajo';
 import { PagosService } from 'src/app/services/pagos.service';
 import { HistorialTrabajos } from 'src/app/models/historial-trabajos';
 import { HistorialTrabajosService } from 'src/app/services/historial-trabajos.service';
+import * as XLSX from 'xlsx';
 
 declare var M: any;
 
@@ -16,11 +17,21 @@ declare var M: any;
 })
 export class PagosComponent implements OnInit {
 
+  fileName= 'Excel_Trabajos.xlsx';
+
   constructor(public pagosService: PagosService, public historialService: HistorialTrabajosService) { }
 
   ngOnInit() {
     this.getTrabajos();
     this.getHistorial();
+  }
+
+  exportexcel(): void {  
+    let element = document.getElementById('excel-table'); 
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    XLSX.writeFile(wb, this.fileName);
   }
 
   addPelicula(form: NgForm){

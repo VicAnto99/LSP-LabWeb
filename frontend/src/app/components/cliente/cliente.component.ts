@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Cliente } from 'src/app/models/cliente';
 import { ClienteService } from 'src/app/services/cliente.service';
+import * as XLSX from 'xlsx';
 
 declare var M: any;
 
@@ -14,10 +15,20 @@ declare var M: any;
 })
 export class ClienteComponent implements OnInit {
 
+  fileName= 'Excel_Clientes.xlsx';
+
   constructor(public clienteService: ClienteService) { }
 
   ngOnInit(): void {
     this.getClientes();
+  }
+
+  exportexcel(): void {  
+    let element = document.getElementById('excel-table'); 
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    XLSX.writeFile(wb, this.fileName);
   }
 
   addCliente(form: NgForm){

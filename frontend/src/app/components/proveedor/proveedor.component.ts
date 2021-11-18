@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Proveedor } from 'src/app/models/proveedor';
 import { ProveedorService } from 'src/app/services/proveedor.service';
+import * as XLSX from 'xlsx';
 
 declare var M: any;
 
@@ -14,10 +15,20 @@ declare var M: any;
 })
 export class ProveedorComponent implements OnInit {
 
+  fileName= 'Excel_Proveedores.xlsx';
+
   constructor(public proovedorService: ProveedorService) { }
 
   ngOnInit(): void {
     this.getProveedores();
+  }
+
+  exportexcel(): void {  
+    let element = document.getElementById('excel-table'); 
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    XLSX.writeFile(wb, this.fileName);
   }
 
   addProveedores(form: NgForm){
