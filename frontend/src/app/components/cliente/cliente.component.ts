@@ -1,5 +1,5 @@
 import { FnParam } from '@angular/compiler/src/output/output_ast';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Cliente } from 'src/app/models/cliente';
 import { ClienteService } from 'src/app/services/cliente.service';
@@ -58,6 +58,7 @@ export class ClienteComponent implements OnInit {
     .subscribe(res=>{
       this.clienteService.clientes = res as Cliente[];
       console.log(res);
+
     });
   }
   editCliente(cliente: Cliente){

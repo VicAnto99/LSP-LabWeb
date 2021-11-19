@@ -1,6 +1,6 @@
 export class Trabajo {
 
-    constructor(_id='', nombre='', cliente_nombre='', medida_papel='', material_tipo='', material_medida='', proceso='', costo='', pago=''){
+    constructor(_id='', nombre='', cliente_nombre='', medida_papel='', material_tipo='', material_medida='', proceso='', costo='', pago='', createdAt=''){
         this._id = _id;
         this.nombre = nombre;
         this.cliente_nombre = cliente_nombre;
@@ -11,6 +11,7 @@ export class Trabajo {
         this.proceso = proceso;
         this.costo = costo;
         this.pago = pago;
+        this.createdAt = createdAt;
     }
 
     _id!: string;
@@ -23,5 +24,6 @@ export class Trabajo {
     proceso!: string;
     costo!: string;
     pago!: string;
+    createdAt!: string;
 
 }

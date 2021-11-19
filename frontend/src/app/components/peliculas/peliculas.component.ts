@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Pelicula } from 'src/app/models/pelicula';
 import { PeliculaService } from 'src/app/services/pelicula.service';
+import { Proveedor } from 'src/app/models/proveedor';
+import { ProveedorService } from 'src/app/services/proveedor.service';
 import * as XLSX from 'xlsx';
 
 declare var M: any;
@@ -11,16 +13,17 @@ declare var M: any;
   selector: 'app-peliculas',
   templateUrl: './peliculas.component.html',
   styleUrls: ['./peliculas.component.css'],
-  providers: [PeliculaService]
+  providers: [PeliculaService, ProveedorService]
 })
 export class PeliculasComponent implements OnInit {
 
   fileName= 'Excel_Peliculas.xlsx';
 
-  constructor(public peliculaService: PeliculaService) { }
+  constructor(public peliculaService: PeliculaService, public proovedorService: ProveedorService) { }
 
   ngOnInit() {
     this.getPeliculas();
+    this.getProveedores();
   }
 
   exportexcel(): void {  
@@ -57,6 +60,13 @@ export class PeliculasComponent implements OnInit {
     this.peliculaService.getPeliculas()
     .subscribe(res=>{
       this.peliculaService.peliculas = res as Pelicula[];
+      console.log(res);
+    });
+  }
+  getProveedores(){
+    this.proovedorService.getProveedores()
+    .subscribe(res=>{
+      this.proovedorService.proveedores = res as Proveedor[];
       console.log(res);
     });
   }

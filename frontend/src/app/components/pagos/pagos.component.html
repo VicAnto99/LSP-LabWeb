@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col s5">
+        <div class="col s4">
             <div class="card">
                 <div class="card-content">
                     <span class="card-title center">Formulario para los Trabajos</span>
@@ -29,14 +29,13 @@
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">people</i>
                                 <select class="browser-default validate" id="cliente_nombre" name="cliente_nombre" #cliente_nombre="ngModel" [(ngModel)]="pagosService.selectedTrabajo.cliente_nombre" style="width: 90%; margin-left: 12%;">
-                                    <option value="" disabled selected>Nombre del Cliente*</option>
-                                    <option value="ImprentaG's de México S.A de C.V">ImprentaG's de México S.A de C.V</option>
-                                    <option value="Impresiones Torres, S.A de C.V">Impresiones Torres, S.A de C.V</option>
-                                    <option value="Mujica Impresor S.A de C.V">Mujica Impresor S.A de C.V</option>
-                                    <option value="Natosa Impresores S.A de C.V">Natosa Impresores S.A de C.V</option>
-                                    <option value="Puan Express S.A de C.V">Puan Express S.A de C.V</option>
+                                    <option value="" disabled selected>Escoge el cliente*</option>
+                                    <option *ngFor="let cliente of clienteService.clientes" [value]="cliente.nombre">{{cliente.nombre}}</option>
                                 </select>
+                                <br>
+                                <a class="waves-effect #90caf9 blue lighten-3 btn-small" routerLink="/cliente">Crear nuevo cliente<i class="material-icons prefix">person_add</i></a>
                             </div>
+
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">photo_size_select_small</i>
                                 <input class="validate" id="medida_papel" type="text" name="medida_papel" #medida_papel="ngModel" [(ngModel)]="pagosService.selectedTrabajo.medida_papel">
@@ -117,7 +116,7 @@
                 </div>
             </div>
         </div>
-        <div class="col s7">
+        <div class="col s6">
             <table id="excel-table">
                 <thead>
                     <th>Nombre del trabajo</th>
@@ -128,6 +127,7 @@
                     <th>Proceso</th>
                     <th>Método de pago</th>
                     <th>Costo</th>
+                    <th>Fecha de creación</th>
                 </thead>
                 <tbody>
                     <tr *ngFor="let trabajo of pagosService.trabajos">
@@ -139,6 +139,7 @@
                         <td>{{trabajo.proceso}}</td>
                         <td>{{trabajo.costo}}</td>
                         <td>{{trabajo.pago}}</td>
+                        <td>{{trabajo.createdAt | date: 'dd-MM-yyyy'}}</td>
                         <td>
                             <a (click)="editRrabajo(trabajo)">
                                 <i class="material-icons">edit</i>
@@ -156,6 +157,7 @@
         </div>
     </div>
 </div>
+<!--
 <div class="container center" id="historial_vista" style="display: block;">
     <div class="col center title">
         <h4 class="z-depth-2">Historial de trabajos</h4>
@@ -183,3 +185,4 @@
         </div>
     </div>
 </div>
+-->

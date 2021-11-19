@@ -57,12 +57,10 @@
                                 <i class="material-icons prefix">local_grocery_store</i>
                                 <select class="browser-default validate" id="provedor" name="provedor" #provedor="ngModel" [(ngModel)]="peliculaService.selectedPelicula.provedor" style="width: 90%; margin-left: 12%;">
                                     <option value="" disabled selected>Proveedor*</option>
-                                    <option value="CIASA">CIASA</option>
-                                    <option value="EMDO">EMDO</option>
-                                    <option value="Peliculas y Laminado">Peliculas y Laminado</option>
-                                    <option value="Polipropimex">Polipropimex</option>
-                                    <option value="Sajo">Sajo</option>
+                                    <option *ngFor="let pro of proovedorService.proveedores" [value]="pro.nombre">{{pro.nombre}}</option>
                                 </select>
+                                <br>
+                                <a class="waves-effect #90caf9 blue lighten-3 btn-small" routerLink="/proveedor">Crear nuevo proovedor<i class="material-icons prefix">person_add</i></a>
                             </div>
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">format_list_numbered</i>

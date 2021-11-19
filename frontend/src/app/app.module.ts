@@ -16,7 +16,8 @@ import { ProveedorComponent } from './components/proveedor/proveedor.component';
 import { ClienteComponent } from './components/cliente/cliente.component';
 import { ProcesosComponent } from './components/procesos/procesos.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations'
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations'
     AppRoutingModule, 
     FormsModule,
     HttpClientModule,
-    NoopAnimationsModule
+    NoopAnimationsModule, 
+    MatTableModule
   ],
   providers: [
     AuthGuard,

@@ -35,6 +35,7 @@
                 <th>Proceso</th>
                 <th>Método de pago</th>
                 <th>Costo</th>
+                <th>Fecha de creación</th>
             </thead>
             <tbody>
                 <tr *ngFor="let trabajo of pagosService.trabajos">
@@ -46,6 +47,7 @@
                     <td>{{trabajo.proceso}}</td>
                     <td>{{trabajo.costo}}</td>
                     <td>{{trabajo.pago}}</td>
+                    <td>{{trabajo.createdAt | date: 'dd-MM-yyyy'}}</td>
                 </tr>
             </tbody>
         </table>

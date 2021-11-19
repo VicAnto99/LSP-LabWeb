@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Pelicula {\n  constructor(_id = '', tipo = '', medida = '', provedor = '', unidades = '') {\n    this._id = _id;\n    this.tipo = tipo;\n    this.medida = medida;\n    this.provedor = provedor;\n    this.unidades = unidades;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

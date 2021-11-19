@@ -5,6 +5,8 @@ import { Trabajo } from 'src/app/models/trabajo';
 import { PagosService } from 'src/app/services/pagos.service';
 import { HistorialTrabajos } from 'src/app/models/historial-trabajos';
 import { HistorialTrabajosService } from 'src/app/services/historial-trabajos.service';
+import { Cliente } from 'src/app/models/cliente';
+import { ClienteService } from 'src/app/services/cliente.service';
 import * as XLSX from 'xlsx';
 
 declare var M: any;
@@ -13,17 +15,18 @@ declare var M: any;
   selector: 'app-pagos',
   templateUrl: './pagos.component.html',
   styleUrls: ['./pagos.component.css'],
-  providers: [PagosService, HistorialTrabajosService]
+  providers: [PagosService, HistorialTrabajosService, ClienteService]
 })
 export class PagosComponent implements OnInit {
 
   fileName= 'Excel_Trabajos.xlsx';
 
-  constructor(public pagosService: PagosService, public historialService: HistorialTrabajosService) { }
+  constructor(public pagosService: PagosService, public historialService: HistorialTrabajosService, public clienteService: ClienteService) { }
 
   ngOnInit() {
     this.getTrabajos();
-    this.getHistorial();
+    //this.getHistorial();
+    this.getClientes();
   }
 
   exportexcel(): void {  
@@ -61,6 +64,14 @@ export class PagosComponent implements OnInit {
     .subscribe(res=>{
       this.pagosService.trabajos = res as Trabajo[];
       console.log(res);
+    });
+  }
+  getClientes(){
+    this.clienteService.getClientes()
+    .subscribe(res=>{
+      this.clienteService.clientes = res as Cliente[];
+      console.log(res);
+
     });
   }
   editRrabajo(trabajo: Trabajo){
