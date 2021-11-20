@@ -18,6 +18,7 @@ import { ProcesosComponent } from './components/procesos/procesos.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
+import { ChidoPagosComponent } from './components/chido-pagos/chido-pagos.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MatTableModule } from '@angular/material/table';
     ProveedorComponent,
     ClienteComponent,
     ProcesosComponent,
-    DashboardComponent
+    DashboardComponent,
+    ChidoPagosComponent
   ],
   imports: [
     BrowserModule,

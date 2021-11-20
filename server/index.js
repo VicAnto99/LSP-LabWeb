@@ -19,6 +19,7 @@ app.use('/api/proveedores', require('./routes/proveedores.routes'));
 app.use('/api/clientes', require('./routes/clientes.routes'));
 app.use('/api/trabajos', require('./routes/trabajos.routes'));
 app.use('/api/historial_trabajos', require('./routes/historial_trabajo.routes'));
+app.use('/api/pagos', require('./routes/pagos.routes'));
 
 //Iniciar el servidor
 app.listen(app.get('port'), () => {

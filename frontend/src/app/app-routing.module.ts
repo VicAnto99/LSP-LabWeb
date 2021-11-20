@@ -11,6 +11,7 @@ import { ClienteComponent } from './components/cliente/cliente.component';
 import { ProcesosComponent } from './components/procesos/procesos.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuard } from './auth.guard';
+import { ChidoPagosComponent } from './components/chido-pagos/chido-pagos.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,11 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'pagos',
+    component: ChidoPagosComponent,
     canActivate: [AuthGuard]
   },
   {

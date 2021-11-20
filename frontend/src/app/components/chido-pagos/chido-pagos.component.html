@@ -1,0 +1,95 @@
+<div class="container">
+    <div class="col s12 center title">
+        <h4 class="z-depth-2">Pagos</h4>
+    </div>
+    <div class="row">
+        <div class="col s7"></div>
+        <div class="col s5">
+            <a style="cursor: pointer" (click)="exportexcel()">
+                Pasar a excel<i class="material-icons prefix">file_download</i>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s5">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title center">Formulario para los pagos</span>
+                    <form #clienteForm="ngForm" (ngSubmit)="addCliente(clienteForm) ">
+                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="pagosService.selectedPagos._id">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">account_box</i>
+                                <input class="validate" id="nombre" type="text" name="nombre" #nombre="ngModel" [(ngModel)]="pagosService.selectedPagos.nombre">
+                                <label for="nombre">Nombre*</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">business</i>
+                                <input class="validate" id="nombre_cliente" type="text" name="nombre_cliente" #nombre_cliente="ngModel" [(ngModel)]="pagosService.selectedPagos.nombre_cliente">
+                                <label for="nombre_cliente">Nombre del cliente</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">contact_phone</i>
+                                <input class="validate" id="metodo" type="text" name="metodo" #metodo="ngModel" [(ngModel)]="pagosService.selectedPagos.metodo">
+                                <label for="metodo">Método</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">add_location</i>
+                                <input class="validate" id="costo" type="text" name="costo" #costo="ngModel" [(ngModel)]="pagosService.selectedPagos.costo">
+                                <label for="costo">Costo</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">add_location</i>
+                                <input class="validate" id="adelanto" type="text" name="adelanto" #adelanto="ngModel" [(ngModel)]="pagosService.selectedPagos.adelanto">
+                                <label for="adelanto">Adelanto</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">add_location</i>
+                                <input class="validate" id="restante" type="text" name="restante" #restante="ngModel" [(ngModel)]="pagosService.selectedPagos.restante">
+                                <label for="restante">Restante</label>
+                            </div>
+                            <div class="card-action">
+                                <div class="input-field col s12">
+                                    <button class="btn #90caf9 blue lighten-3" (click)="resetForm(clienteForm)">Limpiar</button>
+                                    <button class="btn right #90caf9 blue lighten-3">Enviar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col s7">
+            <table id="excel-table">
+                <thead>
+                    <th>Nombre</th>
+                    <th>Nombre del cliente</th>
+                    <th>Método</th>
+                    <th>Costo</th>
+                    <th>Adelanto</th>
+                    <th>Restante</th>
+                    <th>Fecha de creación</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cliente of pagosService.pagos">
+                        <td>{{cliente.nombre}}</td>
+                        <td>{{cliente.nombre_cliente}}</td>
+                        <td>{{cliente.metodo}}</td>
+                        <td>{{cliente.costo}}</td>
+                        <td>{{cliente.adelanto}}</td>
+                        <td>{{cliente.restante}}</td>
+                        <td>{{cliente.createdAt}}</td>
+                        <td>
+                            <a (click)="editCliente(cliente)">
+                                <i class="material-icons">edit</i>
+                            </a>
+                            <a (click)="deleteCliente(cliente._id)">
+                                <i class="material-icons">delete</i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
