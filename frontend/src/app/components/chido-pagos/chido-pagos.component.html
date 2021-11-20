@@ -19,32 +19,43 @@
                         <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="pagosService.selectedPagos._id">
                         <div class="row">
                             <div class="input-field col s12">
-                                <i class="material-icons prefix">account_box</i>
-                                <input class="validate" id="nombre" type="text" name="nombre" #nombre="ngModel" [(ngModel)]="pagosService.selectedPagos.nombre">
-                                <label for="nombre">Nombre*</label>
+                                <i class="material-icons prefix">work</i>
+                                <select class="browser-default validate" id="nombre" type="text" name="nombre" #nombre="ngModel" [(ngModel)]="pagosService.selectedPagos.nombre" style="width: 90%; margin-left: 12%;">
+                                    <option value="" disabled selected>Nombre del trabajo*</option>
+                                    <option *ngFor="let trabajo of trabajo.trabajos" [value]="trabajo.nombre">{{trabajo.nombre}}</option>
+                                </select>
                             </div>
                             <div class="input-field col s12">
-                                <i class="material-icons prefix">business</i>
-                                <input class="validate" id="nombre_cliente" type="text" name="nombre_cliente" #nombre_cliente="ngModel" [(ngModel)]="pagosService.selectedPagos.nombre_cliente">
-                                <label for="nombre_cliente">Nombre del cliente</label>
+                                <i class="material-icons prefix">people</i>
+                                <select class="browser-default validate" id="nombre_cliente" type="text" name="nombre_cliente" #nombre_cliente="ngModel" [(ngModel)]="pagosService.selectedPagos.nombre_cliente" style="width: 90%; margin-left: 12%;">
+                                    <option value="" disabled selected>Escoge el cliente*</option>
+                                    <option *ngFor="let cliente of clienteService.clientes" [value]="cliente.nombre">{{cliente.nombre}}</option>
+                                </select>
                             </div>
                             <div class="input-field col s12">
-                                <i class="material-icons prefix">contact_phone</i>
-                                <input class="validate" id="metodo" type="text" name="metodo" #metodo="ngModel" [(ngModel)]="pagosService.selectedPagos.metodo">
-                                <label for="metodo">Método</label>
+                                <i class="material-icons prefix">payment</i>
+                                <select class="browser-default validate" id="metodo" type="text" name="metodo" #metodo="ngModel" [(ngModel)]="pagosService.selectedPagos.metodo" style="width: 90%; margin-left: 12%;">
+                                    <option value="" disabled selected>Método de pago*</option>
+                                    <option value="Efectivo">Efectivo</option>
+                                    <option value="Cheque">Cheque</option>
+                                    <option value="Transferencia Electrónica">Transferencia Electrónica</option>
+                                    <option value="Tarjeta de Crédito">Tarjeta de Crédito</option>
+                                    <option value="Tarjeta de Débito">Tarjeta de Débito</option>
+                                    <option value="Por Definir">Por Definir</option>
+                                </select>
                             </div>
                             <div class="input-field col s12">
-                                <i class="material-icons prefix">add_location</i>
+                                <i class="material-icons prefix">attach_money</i>
                                 <input class="validate" id="costo" type="text" name="costo" #costo="ngModel" [(ngModel)]="pagosService.selectedPagos.costo">
                                 <label for="costo">Costo</label>
                             </div>
                             <div class="input-field col s12">
-                                <i class="material-icons prefix">add_location</i>
+                                <i class="material-icons prefix">attach_money</i>
                                 <input class="validate" id="adelanto" type="text" name="adelanto" #adelanto="ngModel" [(ngModel)]="pagosService.selectedPagos.adelanto">
                                 <label for="adelanto">Adelanto</label>
                             </div>
                             <div class="input-field col s12">
-                                <i class="material-icons prefix">add_location</i>
+                                <i class="material-icons prefix">attach_money</i>
                                 <input class="validate" id="restante" type="text" name="restante" #restante="ngModel" [(ngModel)]="pagosService.selectedPagos.restante">
                                 <label for="restante">Restante</label>
                             </div>
@@ -78,7 +89,7 @@
                         <td>{{cliente.costo}}</td>
                         <td>{{cliente.adelanto}}</td>
                         <td>{{cliente.restante}}</td>
-                        <td>{{cliente.createdAt}}</td>
+                        <td>{{cliente.createdAt | date: 'dd-MM-yyyy'}}</td>
                         <td>
                             <a (click)="editCliente(cliente)">
                                 <i class="material-icons">edit</i>

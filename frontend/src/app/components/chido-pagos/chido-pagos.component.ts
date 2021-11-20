@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Pagos } from 'src/app/models/pagos';
 import { ChidoPagosService } from 'src/app/services/chido-pagos.service';
+import { Cliente } from 'src/app/models/cliente';
+import { ClienteService } from 'src/app/services/cliente.service';
+import { Trabajo } from 'src/app/models/trabajo';
+import { PagosService } from 'src/app/services/pagos.service';
 import * as XLSX from 'xlsx';
 
 declare var M: any;
@@ -10,16 +14,18 @@ declare var M: any;
   selector: 'app-chido-pagos',
   templateUrl: './chido-pagos.component.html',
   styleUrls: ['./chido-pagos.component.css'],
-  providers: [ChidoPagosService]
+  providers: [ChidoPagosService, ClienteService, PagosService]
 })
 export class ChidoPagosComponent implements OnInit {
 
-  fileName= 'Excel_Clientes.xlsx';
+  fileName= 'Excel_Pagos.xlsx';
 
-  constructor(public pagosService: ChidoPagosService) { }
+  constructor(public pagosService: ChidoPagosService, public clienteService: ClienteService, public trabajo: PagosService) { }
 
   ngOnInit(): void {
     this.getClientes();
+    this.getClientes2();
+    this.getTrabajos();
   }
 
   exportexcel(): void {  
@@ -29,7 +35,20 @@ export class ChidoPagosComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
     XLSX.writeFile(wb, this.fileName);
   }
-
+  getTrabajos(){
+    this.trabajo.getTrabajos()
+    .subscribe(res=>{
+      this.trabajo.trabajos = res as Trabajo[];
+      console.log(res);
+    });
+  }
+  getClientes2(){
+    this.clienteService.getClientes()
+    .subscribe(res=>{
+      this.clienteService.clientes = res as Cliente[];
+      console.log(res);
+    });
+  }
   addCliente(form: NgForm){
     if(form.value._id){
       this.pagosService.putPago(form.value)

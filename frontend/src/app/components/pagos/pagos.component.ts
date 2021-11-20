@@ -71,7 +71,6 @@ export class PagosComponent implements OnInit {
     .subscribe(res=>{
       this.clienteService.clientes = res as Cliente[];
       console.log(res);
-
     });
   }
   editRrabajo(trabajo: Trabajo){
